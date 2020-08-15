@@ -63,7 +63,30 @@ exports.getQuote = async (req, res, next) => {
       success: true,
       data: quote,
     });
-  } catch (error) {
+  } catch (e) {
+    res.status(500).json({
+      success: false,
+      error: e,
+    });
+  }
+};
+
+// @desc    Get a randon quote
+// @route   GET /api/v1/quotes/random
+// @access  Public
+exports.randomQuote = async (req, res, next) => {
+  let random;
+
+  try {
+    const quotes = await Quote.find({});
+
+    random = Math.floor(Math.random() * quotes.length);
+
+    res.status(200).json({
+      success: true,
+      data: quotes[random],
+    });
+  } catch (e) {
     res.status(500).json({
       success: false,
       error: e,
