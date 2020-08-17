@@ -124,3 +124,31 @@ exports.updateQuote = async (req, res, next) => {
     });
   }
 };
+
+// @desc    Delete a quote
+// @route   DELETE /api/v1/quotes/:id
+// @access  Private
+exports.deleteQuote = async (req, res, next) => {
+  const _id = req.params.is;
+
+  try {
+    const quote = await Quote.findByIdAndDelete(_id);
+
+    if (!quote) {
+      return res.status(404).json({
+        success: false,
+        error: "Quote not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: [],
+    });
+  } catch (e) {
+    res.status(500).json({
+      success: false,
+      error: e,
+    });
+  }
+};

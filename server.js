@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 const quotesRouter = require("./routers/quotes");
@@ -5,6 +6,8 @@ const quotesRouter = require("./routers/quotes");
 dotenv.config({ path: "config/config.env" });
 
 const app = express();
+
+app.set(express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
 
