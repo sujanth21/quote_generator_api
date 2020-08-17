@@ -5,11 +5,12 @@ const {
   addQuote,
   getQuotes,
   getQuote,
-  randomQuote,
+  getRandomQuote,
+  updateQuote,
 } = require("../controllers/quotes");
 
 router.route("/").get(getQuotes).post(addQuote);
-router.route("/random").get(randomQuote);
-router.route("/:id").get(getQuote);
+router.route("/random").get(getRandomQuote);
+router.route("/:id").get(getQuote).put(updateQuote);
 
 module.exports = router;

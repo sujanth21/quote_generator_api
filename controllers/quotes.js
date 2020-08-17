@@ -74,7 +74,7 @@ exports.getQuote = async (req, res, next) => {
 // @desc    Get a randon quote
 // @route   GET /api/v1/quotes/random
 // @access  Public
-exports.randomQuote = async (req, res, next) => {
+exports.getRandomQuote = async (req, res, next) => {
   let random;
 
   try {
@@ -85,6 +85,37 @@ exports.randomQuote = async (req, res, next) => {
     res.status(200).json({
       success: true,
       data: quotes[random],
+    });
+  } catch (e) {
+    res.status(500).json({
+      success: false,
+      error: e,
+    });
+  }
+};
+
+// @desc    Update a single quote
+// @route   PUT /api/v1/quotes/:id
+// @access  Private
+exports.updateQuote = async (req, res, next) => {
+  const _id = req.params.id;
+
+  try {
+    const quote = await Quote.findByIdAndUpdate(_id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!quote) {
+      return res.status(400).json({
+        success: false,
+        error: "Quote not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: quote,
     });
   } catch (e) {
     res.status(500).json({
