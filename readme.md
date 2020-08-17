@@ -44,3 +44,7 @@ npm test
 > MongoDB Atlas
 
 > Packages Used: Mongoose, Express, dotenv, node-sass
+
+## Link: https://suj-quote-generator.herokuapp.com/
+
+## API URL: https://suj-quote-generator.herokuapp.com/api/v1/quotes
