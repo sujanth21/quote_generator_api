@@ -26,7 +26,7 @@ const api_url =
 const getRandomQuoteAndManipulateDOM = async () => {
   loading();
   try {
-    const response = await fetch(proxyURL + api_url);
+    const response = await fetch(api_url);
     const { data } = await response.json();
 
     console.log(data);
