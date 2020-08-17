@@ -2,8 +2,12 @@
 const quoteText = document.querySelector(".quote");
 const quoteAuthor = document.querySelector("#author");
 
+//Local: http://localhost:3000/api/v1/quotes/random
+
+const api_url = `${process.env.API_URL}/random`;
+
 const getRandomQuote = async () => {
-  const response = await fetch("http://localhost:3000/api/v1/quotes/random");
+  const response = await fetch(api_url);
   return response.json();
 };
 
