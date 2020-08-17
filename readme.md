@@ -43,4 +43,4 @@ npm test
 
 > MongoDB Atlas
 
-> Packages Used: Mongoose, Express, dotenv,
+> Packages Used: Mongoose, Express, dotenv, node-sass

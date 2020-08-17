@@ -7,7 +7,7 @@ dotenv.config({ path: "config/config.env" });
 
 const app = express();
 
-app.set(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
 
