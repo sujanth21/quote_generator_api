@@ -4,7 +4,8 @@ const quoteAuthor = document.querySelector("#author");
 
 //Local: http://localhost:3000/api/v1/quotes/random
 
-const api_url = `${process.env.API_URL}/random`;
+const api_url =
+  "https://suj-quote-generator.herokuapp.com/api/v1/quotes/random";
 
 const getRandomQuote = async () => {
   const response = await fetch(api_url);
