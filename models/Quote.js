@@ -8,6 +8,7 @@ const quoteSchema = new mongoose.Schema({
   },
   quoteAuthor: {
     type: String,
+    default: "Anonymous",
   },
 });
 
